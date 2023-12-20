@@ -10,6 +10,7 @@
       <form class="form" @keydown.enter.prevent>
         <p>Название</p>
         <input type="text" v-model="currentTitle" @input="isTitleEmpty = false" :class="{ 'input-error': isTitleEmpty, 'input-shake': isTitleEmpty }">
+        <p v-if="isTitleEmpty" class="error-message">название обязательное поле</p>
         <div class="button-modal">
           <button class="button-delete" @click="deleteTask">Удалить</button>
           <button class="button-edit" @click="editTask" :disabled="isTitleEmpty">Изменить</button>
@@ -133,20 +134,19 @@ export default {
   display: flex;
   justify-content: end;
   gap: 8px;
+  margin-top: 24px;
 }
 .button-edit {
   padding: 10px 20px;
   background: #008180;
   color: #FFFFFF;
   border: none;
-  margin-top: 24px;
 }
 .button-delete {
   padding: 10px 20px;
   background: #FC5151;
   color: #FFFFFF;
   border: none;
-  margin-top: 24px;
 }
 .pensil {
   display: flex;
@@ -177,5 +177,11 @@ export default {
 }
 .input-shake {
   animation: shake 0.4s ease-in-out;
+}
+.error-message {
+  position: absolute;
+  color: #FC5151;
+  z-index: 1;
+  margin-left: 8px;
 }
 </style>

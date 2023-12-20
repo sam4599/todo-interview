@@ -3,6 +3,7 @@
     <the-header @add-todo="addTodo"/>
     <div class="global-container">
       <h1>Список задач</h1>
+      <p class="message-empty" v-model="todoEmpty" v-if="todoIsEmpty">Список задач пуст</p>
       <li class="todo-item">
         <todo-item
           v-for="todo of todos"
@@ -32,15 +33,18 @@ export default {
         {id: 1, title: 'Печеники'},
         {id: 2, title: 'Чай'},
         {id: 3, title: 'Сыр'}
-      ]
+      ],
+      todoIsEmpty: false
     }
   },
   methods: {
     addTodo(todo) {
       this.todos.push(todo)
+      this.todoEmpty()
     },
     deleteTask(id) {
       this.todos = this.todos.filter(todo => todo.id !== id)
+      this.todoEmpty()
     },
     editTask(id, title) {
       this.todos = this.todos.map(todo => {
@@ -49,6 +53,9 @@ export default {
         }
         return todo
       })
+    },
+    todoEmpty() {
+      this.todoIsEmpty = this.todos.length === 0
     }
   }
 }
@@ -62,5 +69,10 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 50px;
+}
+.message-empty {
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
 }
 </style>
