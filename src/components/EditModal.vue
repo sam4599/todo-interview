@@ -54,10 +54,13 @@ export default {
       this.showModal = false
       this.clearInput()
       this.isTitleEmpty = false
+      this.currentTitle = this.todo.title
     },
     deleteTask() {
       this.$emit('delete-task', this.todo.id)
       this.showModal = false
+      this.isTitleEmpty = false
+      this.currentTitle = this.todo.title
     },
     editTask() {
       if (this.currentTitle.trim() !== '') {
