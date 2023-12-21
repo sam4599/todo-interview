@@ -153,7 +153,7 @@ export default {
 }
 .pensil {
   display: flex;
-  border: 2px solid #F4C959;
+  border: 1px solid #F4C959;
   width: 90px;
   height: 90px;
   justify-content: center;
@@ -164,7 +164,7 @@ export default {
   cursor: pointer;
 }
 .pensil:hover {
-  border: 2px solid rgba(224, 182, 58, 0.98);
+  border: 1px solid rgba(224, 182, 58, 0.98);
   background: #f5f5f5;
 }
 .input-error {
