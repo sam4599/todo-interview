@@ -36,7 +36,6 @@ export default {
 .global-container p {
   color: #FFFFFF;
   font-size: 18px;
-  font-family: Manrope;
 }
 p span {
   color: #FC5151;
